@@ -64,7 +64,7 @@ static DataModelManager *aManager;
     }
     //最外层是数组
     if (dataType == SkyDataTypeArray) {
-        [modelArray addObjectsFromArray:dic[modelName]];
+        [modelArray addObjectsFromArray:[NSClassFromString(modelName) mj_objectArrayWithKeyValuesArray:dic[modelName]]];
     }
     
     
