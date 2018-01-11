@@ -8,6 +8,13 @@
 
 #ifndef Header_h
 #define Header_h
+#import "DataModelManager.h"
+#import "AFNetworkingManager.h"
+
+
+//字符串是否为空
+#define skyStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || ([str length] < 1) ? (YES) : (NO))
+
 #define WIDTH [UIScreen mainScreen].bounds.size.width
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 //防止循环引用

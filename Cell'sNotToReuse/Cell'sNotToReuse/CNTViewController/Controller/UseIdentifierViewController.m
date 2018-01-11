@@ -178,12 +178,9 @@ static NSInteger const kHeightForHeader = 64;
 {
     //经典
     WS(weakSelf);
-    [HotRouteAndClassicsModel dealForClassicscWithSucess:^(NSMutableDictionary *dataDictionary) {
-        NSMutableArray *array = [NSMutableArray array];
-        [array addObjectsFromArray:dataDictionary[@"ClassicsModel"]];
-        
+    [HotRouteAndClassicsModel dealForClassicscWithSucess:^(NSMutableArray *dataArray) {
         [weakSelf.classicRouteDataArray removeAllObjects];
-        [weakSelf.classicRouteDataArray addObjectsFromArray:array];
+        [weakSelf.classicRouteDataArray addObjectsFromArray:dataArray];
         
         [weakSelf.view bringSubviewToFront:weakSelf.classicRouteTableView];
         [weakSelf.classicRouteTableView reloadData];
@@ -198,12 +195,10 @@ static NSInteger const kHeightForHeader = 64;
 {
     //热门
     WS(weakSelf);
-    [HotRouteAndClassicsModel dealForHotRouteWithDay:day WithSucess:^(NSMutableDictionary *dataDictionary) {
-        NSMutableArray *array = [NSMutableArray array];
-        [array addObjectsFromArray:dataDictionary[@"HotRouteModel"]];
+    [HotRouteAndClassicsModel dealForHotRouteWithDay:day WithSucess:^(NSMutableArray *dataArray) {
         
         [weakSelf.hotRouteDataArray removeAllObjects];
-        [weakSelf.hotRouteDataArray addObjectsFromArray:array];
+        [weakSelf.hotRouteDataArray addObjectsFromArray:dataArray];
         weakSelf.hotDayCount = [day integerValue];
         [weakSelf.view bringSubviewToFront:weakSelf.hotRouteTableView];
         [weakSelf.hotRouteTableView reloadData];
